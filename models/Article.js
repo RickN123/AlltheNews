@@ -1,3 +1,4 @@
+const PORT = process.env.PORT || 3000;
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({
