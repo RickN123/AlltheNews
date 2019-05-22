@@ -1,5 +1,6 @@
 {{> main }}
 <nav class="navbar navbar-expand-lg bg-light"></nav>
+<div class="container-fullwidth"> All The News</div>
 
 <div class="container">
     <div class="navbar-expand">
@@ -23,12 +24,14 @@
 
                 <hr>
 
-                <label>
-                    Enter Your Comments Below
-                    <textarea cols="30" rows="10"></textarea>
-                </label>
-
-                <button>Submit</button>
+                <form class="comment-form">
+                    <label>
+                        Enter Your Comments Below
+                        <textarea cols="30" rows="1"></textarea>
+                    </label>
+                    <input type="hidden" class="id" value="{{id}}">
+                    <button class="submit">Submit</button>
+                </form>
             </div>
 
             {{/each}}
@@ -37,3 +40,27 @@
         <button class="btn btn-secondary save">Save!</button>
     </div>
 </div>
+
+<script>
+
+    document.querySelectorAll('.comment-form').forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var form = event.target;
+            var comment = form.querySelector('textarea').value;
+            var id = form.querySelector('.id').value;
+
+            console.log('submited', comment, id);
+
+            $.post('/savecomment', { comment, id })
+                .then(function (res) {
+                    console.log(response);
+                });
+
+            // fetch();
+        })
+    });
+
+
+</script>
