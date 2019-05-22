@@ -125,6 +125,6 @@ app.post("/articles/:id", function (req, res) {
     });
 });
 
-app.listen(PORT, function () {
+app.listen((process.env.PORT || 5000), function () {
   console.log("App running on port " + PORT + "!");
 });
