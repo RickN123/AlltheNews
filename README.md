@@ -13,4 +13,6 @@ Handlebars
 Javascript
 Express
 Mongoose
+Axios
+Cheerio
 
